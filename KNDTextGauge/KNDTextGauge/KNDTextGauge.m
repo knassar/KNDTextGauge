@@ -4,6 +4,8 @@
 //
 //  Created by Karim Nassar on 3/9/14.
 //  Copyright (c) 2014 Karim Nassar. All rights reserved.
+//  Licensed under MIT License
+//  License text at http://github.com/knassar/KNDTextGauge
 //
 
 #import "KNDTextGauge.h"
