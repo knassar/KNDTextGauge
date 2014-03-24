@@ -167,6 +167,12 @@ NSString *const KNDTextGaugeTextLengthWentOverLimitNotification             = @"
 
 #pragma mark Appearance Metrics
 
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    [self recalculate];
+}
+
 - (void)setGaugeHeight:(CGFloat)gaugeHeight
 {
     if (_gaugeHeight != gaugeHeight) {
