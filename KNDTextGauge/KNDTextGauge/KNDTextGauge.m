@@ -170,6 +170,7 @@ NSString *const KNDTextGaugeTextLengthWentOverLimitNotification             = @"
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
+    [self reframeSubviews];
     [self recalculate];
 }
 
