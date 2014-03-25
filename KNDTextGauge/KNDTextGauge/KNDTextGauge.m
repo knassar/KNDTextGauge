@@ -338,14 +338,13 @@ NSString *const KNDTextGaugeTextLengthWentOverLimitNotification             = @"
 - (void)reframeSubviews
 {
     [_baseGauge setFrame:[self baseFrame]];
-    [_fill setFrame:[self baseFrame]];
-    [_overfill setFrame:[self overfillFrame]];
+    
+    [self recalculate];
     
     [self styleGaugeBar:_baseGauge];
     [self styleGaugeBar:_fill];
     [self styleGaugeBar:_overfill];
-
-    [self recalculate];
+    
 }
 
 #pragma mark - Field Monitoring
