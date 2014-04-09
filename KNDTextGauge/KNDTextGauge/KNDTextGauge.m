@@ -62,6 +62,11 @@ NSString *const KNDTextGaugeTextLengthWentOverLimitNotification             = @"
     return self;
 }
 
+- (void)dealloc
+{
+    [self stopMonitoringText];
+}
+
 #pragma mark - Setters
 
 #pragma mark Object Relationships
@@ -393,16 +398,7 @@ NSString *const KNDTextGaugeTextLengthWentOverLimitNotification             = @"
 
 - (void)stopMonitoringText
 {
-    if (_textField) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:_textField];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidBeginEditingNotification object:_textField];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidEndEditingNotification object:_textField];
-    }
-    else if (_textView) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:_textView];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidBeginEditingNotification object:_textView];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidEndEditingNotification object:_textView];
-    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Delegation & Notifications
